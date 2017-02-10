@@ -1,13 +1,117 @@
 /* =================
 Add more styles here!
 ================= */
-
-body {
-    padding: 0;
-    overflow: hidden;
-    font-family: helvetica, arial, sans-serif;
+body{
+  padding: 0;
+  overflow: hidden;
+  font-family: helvetica, arial, sans-serif;
+  font-weight:normal
+}
+body h1{
+  font-weight: bold;
+  margin-top: 0px;
+  display: inline-block;
+}
+body h2{
+  font-size: 25px;
+  font-weight:normal;
 }
 
+h1:nth-child(8){
+  margin-top:40px;
+}
+
+#HideFilters{
+  border: 1.5px solid #bec4c4;
+  background-color: #d7e9ea;
+  color:#52979b;
+  height: 30px;
+  width: 120px;
+  float: right;
+  text-align: center;
+  padding-top: 5px;
+}
+
+#ByName{
+  border: 0.5px solid #bec4c4;
+  height: 30px;
+  width: 290px;
+}
+
+#ByGrade{
+  border: 0.5px solid #bec4c4;
+  border-radius: 5px;
+  height: 26px;
+  width: 130px;
+  padding-left: 7px;
+  padding-top: 2.5px;
+  box-shadow: 1px 1px 1px #888888;
+}
+
+p:first-child{
+  display: inline-block;
+  margin-top:-15px;
+}
+
+#button{
+  background-color: #52979b;
+  width:20px;
+  height:26px;
+  position:absolute;
+  display: inline-block;
+  border-bottom-right-radius:5px;
+  border-top-right-radius:5px;
+  margin-left: 28px;
+  margin-top: -3px;
+}
+
+#upArrow{
+  position:absolute;
+  display: inline-block;
+  height:8px;
+  width:15px;
+  margin-left: 2.5px;
+  margin-top: 2.5px;
+}
+
+#downArrow{
+  position:absolute;
+  display: inline-block;
+  height:8px;
+  width:15px;
+  margin-left: 2.5px;
+  margin-top: 16px;
+
+}
+#separator{
+  border:1px solid #bec4c4;
+  height:0px;
+  width:290px;
+  position: absolute;
+  margin-top: 25px;
+}
+
+.box{
+  background-color: #d7e9ea;
+  height:180px;
+  width: 290px;
+  padding-left: 10px;
+  padding-top: 10px;
+  margin-top: 20px;
+  box-shadow: 1px 1px 1px #888888
+}
+
+div h3{
+  margin-top: -15px;
+  color:#52979b;
+}
+
+p:nth-child(3){
+  margin-top: 25px;
+}
+p:nth-child(4){
+  margin-top: -18px;
+}
 .map {
     position: absolute;
     right: 0px;

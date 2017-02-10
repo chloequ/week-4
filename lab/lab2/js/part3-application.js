@@ -30,6 +30,9 @@ var resetMap = function() {
   /* =====================
     Fill out this function definition
   ===================== */
+  _.each(myMarkers, function(marker){
+    map.removeLayer(marker);
+  });
 };
 
 /* =====================
@@ -37,10 +40,14 @@ var resetMap = function() {
   will be called as soon as the application starts. Be sure to parse your data once you've pulled
   it down!
 ===================== */
+var parseData;
 var getAndParseData = function() {
   /* =====================
-    Fill out this function definition
-  ===================== */
+      Fill out this function definition
+    ===================== */
+  myData = $.ajax("https://raw.githubusercontent.com/CPLN692-MUSA611/datasets/master/json/philadelphia-solar-installations.json").done(function(data){
+    parseData = JSON.parse(data);
+  });
 };
 
 /* =====================
@@ -48,6 +55,42 @@ var getAndParseData = function() {
   criteria happens to be — that's entirely up to you)
 ===================== */
 var plotData = function() {
+  var makeMarkers = function() {
+      var myObjects1 = [];
+      var myObjects2 = [];
+      var allmarkers = [];
+      _.each(parseData, function(myObject){
+        // input two year number in the numericField1 and numbericField2,
+        // code below helps to select out the SolarInstallation that built
+        // between these two years
+        if (myObject.YEARBUILT >= numericField1 && myObject.YEARBUILT <= numericField2){
+          myObjects1.push(myObject);
+        }
+      });
+      console.log(typeof(myObjects1));
+      _.each(myObjects1, function(object){
+        // code below helps to select out the SolarInstallation that built in
+        // the zipcode 19104 when the booleanField box is checked
+        if ((object.ZIPCODE === 19104) === booleanField){
+          myObjects2.push(object);
+        }
+      });
+      _.each(myObjects2, function(object){
+        // code below helps to select out the SolarInstallation that built by
+        // a speciific developer that the user input in the box
+        if (object.DEVELOPER === stringField){
+          allmarkers.push(L.marker([object.LAT, object.LONG_]));
+        }
+      });
+      return allmarkers;
+  };
+  var markers = makeMarkers();
+  var plotMarkers = function() {
+    _.each(markers, function(marker){
+      marker.addTo(map);
+    });
+  };
+  plotMarkers();
   /* =====================
     Fill out this function definition
   ===================== */
